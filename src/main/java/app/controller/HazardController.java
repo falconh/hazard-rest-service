@@ -36,7 +36,7 @@ public class HazardController {
 		return new ResponseEntity<Hazard>(currentHazard, HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST, value = "/hazard")
 	public ResponseEntity<Void> createHazard(@RequestBody Hazard hazard) {
 		Hazard newHazard = new Hazard(hazard.getLatitude(),
 				hazard.getLongitude(),
@@ -96,14 +96,6 @@ public class HazardController {
     @RequestMapping("/hazard/search-by-type-time")
     public ResponseEntity<List<Hazard>> getHazardListByTypeAndTime(@RequestParam(value = "type") String type, @RequestParam(value = "time") String time) {
     	List<Hazard> hazardList = (List<Hazard>) hazardRepo.findByTypeAndTime(type, time);
-    	
-        return new ResponseEntity<List<Hazard>>(hazardList, HttpStatus.OK);
-    }
-    
-    @RequestMapping("/hazard/search-by-affected")
-    public ResponseEntity<List<Hazard>> getHazardListByAffectedUser(@RequestParam(value = "isMotorAffected") boolean isMotorAffected,
-    		@RequestParam(value = "isCarAffected") boolean isCarAffected, @RequestParam(value = "isTruckAffected") boolean isTruckAffected) {
-    	List<Hazard> hazardList = (List<Hazard>) hazardRepo.findByIsMotorAffectedAndIsCarAffectedAndIsTruckAffected(isMotorAffected, isCarAffected, isTruckAffected);
     	
         return new ResponseEntity<List<Hazard>>(hazardList, HttpStatus.OK);
     }

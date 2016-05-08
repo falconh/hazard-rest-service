@@ -16,8 +16,6 @@ public interface HazardRepository extends CrudRepository<Hazard, String>{
 	
 	List<Hazard> findByTypeAndTime(String type, String time);
 	
-	List<Hazard> findByIsMotorAffectedAndIsCarAffectedAndIsTruckAffected(boolean isMotorAffected, boolean isCarAffected, boolean isTruckAffected);
-	
 	@Query(value = "select * from hazard h where h.is_motor_affected = :isMotorAffected and "
 			+ "h.is_car_affected = :isCarAffected and h.is_truck_affected = :isTruckAffected",
 			nativeQuery = true)
