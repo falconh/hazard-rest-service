@@ -12,8 +12,8 @@ public class Hazard {
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private String id;
-	  private float latitude;
-	  private float longitude;
+	  private double latitude;
+	  private double longitude;
 	  private String time;
 	  private String type;
 	  private boolean isMotorAffected;
@@ -24,7 +24,7 @@ public class Hazard {
 		  
 	  }
 	  
-	  public Hazard(float longitude, float latitude, String time, String type, boolean isMotorAffected,
+	  public Hazard(double longitude, double latitude, String time, String type, boolean isMotorAffected,
 			  boolean isCarAffected, boolean isTruckAffected) {
 		  this.longitude = longitude;
 		  this.latitude = latitude;
@@ -43,19 +43,19 @@ public class Hazard {
 		this.id = id;
 	}
 
-	public float getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
-	public float getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
